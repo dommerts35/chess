@@ -4,75 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajedrez para Dos Jugadores</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-        }
-        
-        .chess-board {
-            display: inline-block;
-            border: 3px solid #333;
-            margin: 20px;
-        }
-        
-        .row {
-            display: flex;
-        }
-        
-        .square {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            cursor: pointer;
-        }
-        
-        .white {
-            background-color: #f0d9b5;
-        }
-        
-        .black {
-            background-color: #b58863;
-        }
-        
-        .selected {
-            background-color: #aec6cf;
-        }
-        
-        .possible-move {
-            background-color: #90ee90;
-        }
-        
-        .game-info {
-            margin: 20px;
-            font-size: 18px;
-        }
-        
-        .captured-pieces {
-            margin: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Ajedrez para Dos Jugadores</h1>
-    
-    <div class="game-info">
-        <div id="turn-info">Turno: <span id="current-player">Blancas</span></div>
-        <div id="status">Selecciona una pieza para comenzar</div>
+    <div class="container">
+        <header>
+            <h1>Ajedrez para Dos Jugadores</h1>
+        </header>
+        
+        <main class="game-container">
+            <div class="game-info">
+                <div id="turn-info" class="turn-info">
+                    Turno: <span id="current-player" class="player-white">Blancas</span>
+                </div>
+                <div id="status" class="status-message">Selecciona una pieza para comenzar</div>
+            </div>
+            
+            <div id="chess-board" class="chess-board"></div>
+            
+            <div class="captured-pieces">
+                <div class="captured-white">
+                    <span class="captured-label">Piezas capturadas por Blancas:</span>
+                    <span id="white-captured" class="captured-list"></span>
+                </div>
+                <div class="captured-black">
+                    <span class="captured-label">Piezas capturadas por Negras:</span>
+                    <span id="black-captured" class="captured-list"></span>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button onclick="resetGame()" class="reset-btn">Reiniciar Juego</button>
+            </div>
+        </main>
     </div>
-    
-    <div id="chess-board" class="chess-board"></div>
-    
-    <div class="captured-pieces">
-        <div>Piezas capturadas por Blancas: <span id="white-captured"></span></div>
-        <div>Piezas capturadas por Negras: <span id="black-captured"></span></div>
-    </div>
-    
-    <button onclick="resetGame()">Reiniciar Juego</button>
 
     <script src="chess.js"></script>
 </body>
