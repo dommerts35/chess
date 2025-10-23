@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajedrez para Dos Jugadores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        
+        .chess-board {
+            display: inline-block;
+            border: 3px solid #333;
+            margin: 20px;
+        }
+        
+        .row {
+            display: flex;
+        }
+        
+        .square {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            cursor: pointer;
+        }
+        
+        .white {
+            background-color: #f0d9b5;
+        }
+        
+        .black {
+            background-color: #b58863;
+        }
+        
+        .selected {
+            background-color: #aec6cf;
+        }
+        
+        .possible-move {
+            background-color: #90ee90;
+        }
+        
+        .game-info {
+            margin: 20px;
+            font-size: 18px;
+        }
+        
+        .captured-pieces {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ajedrez para Dos Jugadores</h1>
+    
+    <div class="game-info">
+        <div id="turn-info">Turno: <span id="current-player">Blancas</span></div>
+        <div id="status">Selecciona una pieza para comenzar</div>
+    </div>
+    
+    <div id="chess-board" class="chess-board"></div>
+    
+    <div class="captured-pieces">
+        <div>Piezas capturadas por Blancas: <span id="white-captured"></span></div>
+        <div>Piezas capturadas por Negras: <span id="black-captured"></span></div>
+    </div>
+    
+    <button onclick="resetGame()">Reiniciar Juego</button>
+
+    <script src="chess.js"></script>
+</body>
+</html>
